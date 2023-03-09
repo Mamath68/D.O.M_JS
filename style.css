@@ -1,4 +1,3 @@
-
 #board {
     display: flex;
     flex-wrap: wrap;
@@ -13,19 +12,41 @@
     text-align: center;
     line-height: 75px;
     margin: 5px;
-    animation : appear 1s;
+    animation: appear 1s;
     border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.8s, color 0.8s, transform 0.8s;
 }
 
-.box-clicked {
+.box-valid {
     background-color: #ccc;
-    color:#aaa;
+    color: #aaa;
+    transform: scale(0.8);
 }
 
-@keyframes appear{
+.box.error {
+    color: rgb(144, 58, 58);
+    background-color: rgb(255, 160, 190);
+}
+
+.box.success {
+    color: rgb(11, 138, 22);
+    background-color: rgb(172, 251, 172);
+}
+
+.box.notice {
+    color: rgb(18, 16, 151);
+    background-color: rgb(184, 217, 255);
+    cursor: not-allowed;
+}
+
+
+@keyframes appear {
     from {
         transform: scale(0) rotate(180deg);
-    } to {
+    }
+
+    to {
         transform: scale(1) rotate(0deg);
     }
 }
