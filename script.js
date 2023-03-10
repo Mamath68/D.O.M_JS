@@ -138,7 +138,6 @@ for (let i = 1; i <= 10; i++) {
     board.appendChild(newbox);
 
     newbox.addEventListener("click", function () {
-        // a mettre ici les fonction start et stop
 
         if (i == nb) {
             onclick = () => {
@@ -148,6 +147,7 @@ for (let i = 1; i <= 10; i++) {
         if (i == nb) {
             newbox.classList.add("box-valid")
             // 1
+
             if (nb == board.children.length) {
                 board.querySelectorAll(".box").forEach(function (box) {
                     showReaction("success", box);
@@ -156,6 +156,7 @@ for (let i = 1; i <= 10; i++) {
             nb++
         }
         // 2
+
         else if (i > nb) {
             showReaction("error", newbox)
             nb = 1
@@ -164,6 +165,7 @@ for (let i = 1; i <= 10; i++) {
             })
         }
         // 3
+
         else {
             showReaction("notice", newbox)
         }
