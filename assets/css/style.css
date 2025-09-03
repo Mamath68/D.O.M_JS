@@ -1,64 +1,101 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.controls {
+    text-align: center;
+    margin-top: 1em;
+}
+
+button {
+    padding: 10px 20px;
+    margin: 0 10px;
+    font-size: 1em;
+    border: none;
+    border-radius: 8px;
+    background-color: #e76f51;
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s;
+
+    &:hover {
+        background-color: #d65a3f;
+    }
+}
+
+input[type="number"] {
+    padding: 8px;
+    font-size: 1em;
+    width: 60px;
+    margin-left: 10px;
+    margin-right: 10px;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+}
+
 #board {
     display: flex;
     flex-wrap: wrap;
     align-items: center;
 }
 
-.box {
-    /* largeur de 75pixel */
-    width: 75px;
-    /* hauteur de 75pixel */
-    height: 75px;
-    /* bord de 1 pixel solide et couleur noir */
-    border: 1px solid black;
-    /* Arrière plan de couleur variante du jaune */
-    background-color: rgba(212, 250, 76);
-    /* Taille de police de 1em(equivalent de 15pixel) */
-    font-size: 1em;
-    /* Centrage du texte */
-    text-align: center;
-    /* a revoir */
-    line-height: 75px;
-    /* marge (externe,???) de 5px */
-    margin: 0 50px 20% 0;
-    /* les cubes apparaissent en 1 seconde */
-    animation: appear 1s;
-    /* arrondissement de 7 pixel des bordures */
-    border-radius: 6px;
-    /* Changement du curseur de la souris en pointeur */
-    cursor: pointer;
-    /* Les cubes prennent : 0.8 seconde pour changer la couleur de fond, la couleur du texte lors du cliquage. */
-    transition: background-color 0.8s, color 0.8s, transform 0.8s;
+@keyframes flash {
+    0% {
+        background-color: #fff;
+    }
 
+    50% {
+        background-color: #f0f0f0;
+    }
+
+    100% {
+        background-color: #fff;
+    }
 }
 
-/* Couleurs par défaut des cubes */
+#board.flash {
+    animation: flash 0.5s ease;
+}
+
+.box {
+    width: 75px;
+    height: 75px;
+    border: 1px solid black;
+    background-color: rgba(212, 250, 76);
+    font-size: 1em;
+    text-align: center;
+    line-height: 75px;
+    margin: 0 50px 20% 0;
+    animation: appear 1s;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.8s, color 0.8s, transform 0.8s;
+}
+
 .box-valid {
     background-color: #ccc;
     color: #aaa;
     transform: scale(0.8);
 }
 
-/* Erreur dans l'ordre de sélections de cubes */
 .box.error {
     color: rgb(144, 58, 58);
     background-color: rgb(255, 160, 190);
 }
 
-/* cubes validés dans le bon ordre */
 .box.success {
     color: rgb(11, 138, 22);
     background-color: rgb(172, 251, 172);
 }
 
-/* Cube déja sélectionné */
 .box.notice {
     color: rgb(18, 16, 151);
     background-color: rgb(184, 217, 255);
     cursor: not-allowed;
 }
 
-/* Comment apparaissent les cubes */
 @keyframes appear {
     from {
         transform: scale(0) rotate(180deg);
@@ -70,7 +107,6 @@
 }
 
 /* ********************TIMER**************** */
-
 .content-cronometer {
     background-color: #264653;
     height: 100%;
