@@ -1,9 +1,13 @@
-export const getDOM = () => ({
-    getHours: document.querySelector('.hours'),
-    getMinutes: document.querySelector('.minutes'),
-    getSeconds: document.querySelector('.seconds'),
-    getCentiseconds: document.querySelector('.miliseconds'),
-    board: document.querySelector("#board"),
-    input: document.getElementById("cubeCount"),
-    resetBtn: document.getElementById("resetBtn")
-});
+import React from 'react'
+
+function dom() {
+    const getHours = document.querySelector('.hours');
+    const getMinutes = document.querySelector('.minutes');
+    const getSeconds = document.querySelector('.seconds');
+    const getCentiseconds = document.querySelector('.miliseconds');
+    const board = document.querySelector("#board");
+    const input = document.getElementById("cubeCount");
+    const resetBtn = document.getElementById("resetBtn");
+}
+
+export default dom
