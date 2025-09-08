@@ -4,6 +4,8 @@ const getMinutes = document.querySelector('.minutes');
 const getSeconds = document.querySelector('.seconds');
 const getCentiseconds = document.querySelector('.miliseconds');
 const board = document.querySelector("#board");
+const input = document.getElementById("cubeCount");
+const resetBtn = document.getElementById("resetBtn");
 
 // Variables du chrono
 let hours_time = 0, minutes_time = 0, seconds_time = 0, centiseconds_time = 0;
@@ -76,7 +78,6 @@ const game = {
     current: 1,
     max: 10,
     init() {
-        const input = document.getElementById("cubeCount");
         this.max = parseInt(input.value) || 10;
         this.current = 1;
         board.innerHTML = "";
@@ -112,7 +113,7 @@ const game = {
 };
 
 
-document.getElementById("resetBtn").onclick = () => {
+resetBtn.onclick = () => {
     game.init();
 };
 
