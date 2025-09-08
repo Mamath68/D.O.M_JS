@@ -1,4 +1,4 @@
-export function shuffleChildren(parent) {
+function shuffleChildren(parent) {
     const childrenArray = Array.from(parent.children);
     for (let i = childrenArray.length - 1; i > 0; i--) {
         const j = Math.floor(Math.random() * (i + 1));
@@ -6,3 +6,4 @@ export function shuffleChildren(parent) {
     }
     childrenArray.forEach(child => parent.appendChild(child));
 }
+export default shuffleChildren;
