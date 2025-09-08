@@ -1,9 +1,8 @@
-export function createChrono(dom) {
+function chrono(dom) {
     let h = 0, m = 0, s = 0, cs = 0;
     let timer = null;
 
     const format = val => val < 10 ? '0' + val : val;
-
     function updateDisplay() {
         dom.getHours.textContent = format(h);
         dom.getMinutes.textContent = format(m);
@@ -34,3 +33,5 @@ export function createChrono(dom) {
         }
     };
 }
+
+export default chrono
