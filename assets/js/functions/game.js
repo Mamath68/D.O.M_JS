@@ -1,7 +1,7 @@
 import { shuffleChildren } from './shuffle.js';
 import { showReaction } from './reactions.js';
 
-export function createGame(dom, chrono) {
+function createGame(dom, chrono) {
     return {
         current: 1,
         max: 10,
@@ -40,3 +40,5 @@ export function createGame(dom, chrono) {
         }
     };
 }
+
+export default game;
